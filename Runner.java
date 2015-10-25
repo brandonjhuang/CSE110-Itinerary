@@ -3,7 +3,7 @@ public class Runner{
 	public static void main(String[] args){
 		Event myEvent = new Event(new Date(0),new Date(10), "First");
 		Event otherEvent = new Event(new Date(16),new Date(20), "Second");
-		Event yetAnotherEvent = new Event(new Date(31),new Date(40), "third");
+		Event yetAnotherEvent = new Event(new Date(31),new Date(40), "Third");
 		
 		Calendar myCalendar = new Calendar();
 		myCalendar.insert(myEvent);
@@ -11,32 +11,31 @@ public class Runner{
 		myCalendar.insert(yetAnotherEvent);
 		myCalendar.sort();
 		myCalendar.print();
-		Event filler = myCalendar.findTime(5, new Date(90000000), "Insertion One");
-		if(filler == null)
-			System.out.println("welp");
-		else	myCalendar.insert(filler);
-		myCalendar.sort();
-		myCalendar.print();
-
-
-
-
-		filler = myCalendar.findTime(10, new Date(910000000), "Insertion Two");
-		if(filler == null)
-			System.out.println("welp");
-		else myCalendar.insert(filler);
-		myCalendar.sort();
-		myCalendar.print();
-
 		
-		filler = myCalendar.findTime(40, new Date(910000000), "Insertion Three");
-		if(filler == null)
-			System.out.println("welp");
-		else myCalendar.insert(filler);
-		myCalendar.sort();
-		myCalendar.print();
-
-
+		// Event filler = myCalendar.findTime(5, new Date(90000000), "Insertion One");
+		// filler = myCalendar.findTime(10, new Date(910000000), "Insertion Two");		
+		// filler = myCalendar.findTime(40, new Date(910000000), "Insertion Three");
+		// Event f = myCalendar.findTime(40, new Date(30), "Insertion Four");
+		// if(f == null)
+			// System.out.println("welp");
+		// else myCalendar.insert(f);
+		Queue<Task> eventPlacer = new PriorityQueue<Task>();
+		eventPlacer.add(new Task(null, 1, "Insertion One", new Date(90000000), 5, false, null));
+		eventPlacer.add(new Task(null, 1, "Insertion Two", new Date(90000000), 10, false, null));
+		eventPlacer.add(new Task(null, 1, "Insertion Three", new Date(90000000), 40, false, null));
+		eventPlacer.add(new Task(null, 1, "Insertion Four", new Date(30), 40, false, null));
+		
+		Task current = null;
+		while(!eventPlacer.isEmpty()){
+			current = eventPlacer.poll();
+			Event e = myCalendar.findTime(current.getDuration(), current.getDueDate(), current.getDescription());
+			if(e != null){
+				myCalendar.insert(e);
+			}
+			
+			myCalendar.sort();
+			myCalendar.print();
+		}
 
 
 

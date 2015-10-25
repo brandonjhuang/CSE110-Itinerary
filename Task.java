@@ -1,10 +1,10 @@
 import java.util.*;
-public class Task implements Comparator<Task>{
+public class Task implements Comparable<Task>{
 	private String name;
 	private int priority;
 	private String description;
 	private Date duedate;
-	private long duration;
+	private Long duration;
 	private boolean completed;
 	private Event event;
 	public Task(String myName, int myPriority, String myDescription, Date myDate, long myDuration, boolean myCompletion, Event myEvent){
@@ -38,15 +38,15 @@ public class Task implements Comparator<Task>{
 		return event;
 	}
 	//compare duedate and priority and ??duration??
-	publc int compareTo(Task other){
+	public int compareTo(Task other){
 		if(duedate.compareTo(other.getDueDate() ) != 0){
 			return duedate.compareTo(other.getDueDate() );
 		}
-		if(priority.compareTo(other.getPriority() ) != 0){
-			return priority.compareTo(other.getPriority() );
+		else if(priority != other.getPriority()){
+			return (int)(other.getPriority() - priority) ;
+		}else{		
+			return(int) (other.getDuration() - duration) ;
 		}
-		if(duration.compareTo(other.getDuration() ) != 0){
-			return duration.compareTo(other.getDuration() );
-		}
+	}
 	
 }

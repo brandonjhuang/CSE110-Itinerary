@@ -150,7 +150,7 @@ public class Main extends Activity {
     private void addEvent() {
         ContentValues l_event = new ContentValues();
         l_event.put("calendar_id", m_selectedCalendarId);
-        l_event.put("title", "roman10 calendar tutorial test");
+        l_event.put("title", "Test Event");
         l_event.put("description", "This is a simple test for calendar api");
         l_event.put("eventLocation", "@home");
         l_event.put("dtstart", System.currentTimeMillis());
@@ -182,8 +182,8 @@ public class Main extends Activity {
         Intent l_intent = new Intent(Intent.ACTION_EDIT);
         l_intent.setType("vnd.android.cursor.item/event");
         //l_intent.putExtra("calendar_id", m_selectedCalendarId);  //this doesn't work
-        l_intent.putExtra("title", "roman10 calendar tutorial test");
-        l_intent.putExtra("description", "This is a simple test for calendar api");
+        l_intent.putExtra("title", "Test");
+        l_intent.putExtra("description", "Description is here");
         l_intent.putExtra("eventLocation", "@home");
         l_intent.putExtra("beginTime", System.currentTimeMillis());
         l_intent.putExtra("endTime", System.currentTimeMillis() + 1800 * 1000);

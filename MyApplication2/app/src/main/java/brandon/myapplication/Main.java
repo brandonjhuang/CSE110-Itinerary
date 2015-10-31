@@ -20,6 +20,7 @@ package brandon.myapplication;
         import android.widget.AdapterView;
         import android.widget.ArrayAdapter;
         import android.widget.Button;
+        import android.widget.ListView;
         import android.widget.Spinner;
         import android.widget.TextView;
         import android.widget.Toast;
@@ -38,6 +39,9 @@ class MyCalendar {
 }
 
 public class Main extends Activity {
+
+    String[] mobileArray = {"Do CSE homework","Work on project","Prepare for exam","Get birthday present","Some other task","Finish up lab","Work on side project","Some other task","Some other task","Buy supplies","Some other task","Some other task"};
+
     /*********************************************************************
      * UI part*/
     private Spinner m_spinner_calender;
@@ -56,6 +60,11 @@ public class Main extends Activity {
         populateAddBtn2();
         populateTextEvent();
         populateGetEventsBtn();
+
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, mobileArray);
+
+        ListView listView = (ListView) findViewById(R.id.mobile_list);
+        listView.setAdapter(adapter);
     }
     private void populateCalendarSpinner() {
         m_spinner_calender = (Spinner)this.findViewById(R.id.spinner_calendar);

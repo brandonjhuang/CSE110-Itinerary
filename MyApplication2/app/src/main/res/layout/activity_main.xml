@@ -6,6 +6,14 @@
     android:layout_height="match_parent" android:fitsSystemWindows="true" tools:context=".Main"
     android:clickable="false">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/frameLayout">
+
     <include layout="@layout/content_main" />
 
     <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
@@ -15,4 +23,23 @@
         android:clickable="true"
         android:onClick="magicButton" />
 
+        <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:id="@+id/fab"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_width="56dp"-->
+            <!--android:layout_height="56dp"-->
+            <!--android:layout_gravity="bottom|right"-->
+            <!--android:layout_marginRight="16dp"-->
+            <!--android:layout_marginBottom="16dp"-->
+            <!--android:clickable="true"-->
+            <!--android:elevation="1dp"/>-->
+
+        <ListView
+            android:id="@+id/mobile_list"
+            android:layout_width="match_parent"
+            android:layout_height="412dp"
+            android:layout_gravity="right|bottom">
+        </ListView>
+    </FrameLayout>
 </android.support.design.widget.CoordinatorLayout>
